@@ -124,6 +124,8 @@ final class ISO3166 implements \Countable, \IteratorAggregate, ISO3166DataProvid
      * @see \Countable
      *
      * @internal
+     *
+     * @return int
      */
     public function count(): int
     {
@@ -137,7 +139,7 @@ final class ISO3166 implements \Countable, \IteratorAggregate, ISO3166DataProvid
      *
      * @internal
      */
-    public function getIterator(): \Generator
+    public function getIterator(): \Traversable
     {
         foreach ($this->countries as $country) {
             yield $country;
@@ -150,6 +152,8 @@ final class ISO3166 implements \Countable, \IteratorAggregate, ISO3166DataProvid
      * Looks for a match against the given key for each entry in the dataset.
      *
      * @param 'name'|'alpha2'|'alpha3'|'numeric' $key
+     *
+     * @param string $value
      *
      * @throws \League\ISO3166\Exception\OutOfBoundsException if key does not exist in dataset
      *
